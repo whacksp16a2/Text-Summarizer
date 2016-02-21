@@ -38,7 +38,7 @@
     <section id="hero">
         <div class="row wrapper landing">
         <div class="form-container small-12 medium-6 large-4 column small-centered">
-            <form>
+            <form action="" method="Post" name="titleinput">
               <div class="row">
                 <div class="large-12 columns">
                   <label><h4>Pick a book.</h4>
@@ -53,9 +53,16 @@
                       <input type="radio" name="language" value="yoda" id="yoda"><label for="yoda"><h6>Yoda</h6></label>
                     </div>
                 </div>
+                <input type="submit" class="button round">
             </form>
-            <a href="#" class="button round">submit</a>
         </div>
+
+        {% if title %}
+        <div id="display-box">
+            <h6> {{ output-text }} </h6>
+        </div>
+        {% else %}
+        {% endif %}
     </section>
 
 
