@@ -13,3 +13,7 @@ def dev():
 @app.route('/yo')
 def yo():
     return '<a href="www.goathub.co">yo</a>'
+
+@app.route('/sum/<a>/<b>')
+def math(a, b):
+    return "sum: " + str(int(a) + int(b))
