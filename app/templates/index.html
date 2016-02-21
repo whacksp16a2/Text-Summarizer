@@ -37,37 +37,35 @@
     <!--- HERO SECTION -->
     <section id="hero">
         <div class="row wrapper landing">
-        <div class="form-container small-12 medium-6 large-4 column small-centered">
-            <form action="" method="Post" name="titleinput">
-              <div class="row">
-                <div class="large-12 columns">
-                  <label><h4>Pick a book.</h4>
-                    <input type="text" placeholder="What's the title?" />
-                  </label>
-                </div>
-              </div>
-              <div class="row">
-                  <div class="small-12 columns">
-                      <label><h5>Pick a language.</h5></label>
-                      <input type="radio" name="language" value="pirate" id="pirate"><label for="piratelang"><h6>Pirate</h6></label>
-                      <input type="radio" name="language" value="yoda" id="yoda"><label for="yoda"><h6>Yoda</h6></label>
+            <div class="form-container small-12 medium-6 large-4 column small-centered">
+
+                <form action="" method="Post" name="titleinput">
+                  <div class="row">
+                    <div class="large-12 columns">
+                      <label><h4>Pick a book.</h4>
+                        <input type="text" placeholder="What's the title?" />
+                      </label>
                     </div>
-                </div>
-                <input type="submit" class="button round">
-            </form>
+                  </div>
 
+                  <div class="row">
+                      <div class="small-12 columns">
+                          <label><h5>Pick a language.</h5></label>
+                          <input type="radio" name="language" value="pirate" id="pirate"><label for="piratelang"><h6>Pirate</h6></label>
+                          <input type="radio" name="language" value="yoda" id="yoda"><label for="yoda"><h6>Yoda</h6></label>
+                        </div>
+                    </div>
 
+                    <input type="submit" class="button round">
+                </form>
+            </div>
 
-        </div>
-
-        </br>
-        </br>
-        {% if output_text %}
-        <div id="display-box">
-            <h6> {{ output_text}} plus a little bit </h6>
-        </div>
-        {% else %}
-        {% endif %}
+            {% if output_text %}
+            <div id="display-box small-12 medium-10 large-8 small-centered">
+                <h6> {{ output_text}} plus a little bit </h6>
+            </div>
+            {% else %}
+            {% endif %}
 
 
     </section>
