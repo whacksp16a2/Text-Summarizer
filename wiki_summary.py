@@ -111,4 +111,8 @@ def stripHTMLTags(html):
 	 / ""","")
 	    return text
 
-print stripHTMLTags(wiki_summary(book_title))
+final = stripHTMLTags(wiki_summary(book_title))
+for i in range (50):
+	final = final.replace("[" + str(i) + "]","");
+
+print final
