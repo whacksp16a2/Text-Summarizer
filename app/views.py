@@ -4,7 +4,7 @@ from flask import render_template
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html', output_text='...')
+    return render_template('index.html', output_text='text')
 
 @app.route('/dev')
 def dev():
