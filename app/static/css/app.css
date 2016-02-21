@@ -83,6 +83,20 @@
     border-radius: 20px;
 }
 
+#display-box{
+    background: #FFF;
+    text-align: center;
+    border-radius: 20px;
+    margin-top: 25px;
+    padding: 25px;
+    
+    -webkit-box-shadow: 0px 10px 65px -12px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 65px -12px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 65px -12px rgba(0,0,0,0.75);
+}
+
+
+
 /********************
         FOOTER
 ********************/
