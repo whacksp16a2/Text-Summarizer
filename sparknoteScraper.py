@@ -31,11 +31,6 @@ def getShortenedName(bookTitle):
     searchResults = bsObj.findAll("div", {"class": "search-result"})
     hyperlinkText = getFirstHyperlinkText(searchResults, 4)
     return hyperlinkText
-    """for result in searchResults:
-        hrefText = result.a['href']
-        bookTitleFromURL = hrefText.split('/')[3]
-        if bookTitleFromURL.lower() in bookTitle.lower() and bookTitleFromURL.lower() is not "":
-            return bookTitleFromURL.lower()"""
 
 
 def getSparknoteURL(bookTitle):
