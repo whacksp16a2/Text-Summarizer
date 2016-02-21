@@ -1,14 +1,19 @@
 from app import app
-from flask import render_template
+import masterSummarizer as MS
+from flask import render_template, request, url_for
 
 @app.route('/')
 def index():
-    return render_template('index.html', output_text='sample text')
+    return render_template('index.html')
 
 @app.route('/index', methods=['POST'])
 def form():
-    name=request.form(name)
-    return render_template('index.html', output_text=name)
+    book_name=request.form['name']
+    print book_name
+    output_text = MS.getSummary(book_name, 3)
+    if output_text:
+        print "it works"
+    return render_template('index.html', output_text=output_text)
 
 @app.route('/dev')
 def dev():

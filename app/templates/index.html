@@ -39,7 +39,7 @@
         <div class="row wrapper landing">
             <div class="form-container small-12 medium-6 large-4 column small-centered">
 
-                <form action="" method="Post" name="titleinput">
+                <form action="{{ url_for('form') }}" method="Post" name="titleinput">
                   <div class="row">
                     <div class="large-12 columns">
                       <label><h4>Pick a book.</h4>
@@ -63,8 +63,8 @@
             </div>
 
             {% if output_text %}
-            <div id="display-box small-12 medium-10 large-8 small-centered">
-                <h6> {{ output_text}} plus a little bit </h6>
+            <div id="display-box" class="small-12 medium-10 large-8 small-centered">
+                <h6> {{ output_text}} </h6>
             </div>
             {% else %}
             {% endif %}
