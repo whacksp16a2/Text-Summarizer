@@ -2,9 +2,13 @@ from app import app
 from flask import render_template
 
 @app.route('/')
-@app.route('/index')
 def index():
-    return render_template('index.html', output_text='text')
+    return render_template('index.html', output_text='sample text')
+
+@app.route('/index', methods=['POST'])
+def form():
+    name=request.form(name)
+    return render_template('index.html', output_text=name)
 
 @app.route('/dev')
 def dev():

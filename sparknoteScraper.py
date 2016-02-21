@@ -18,9 +18,7 @@ def getShortenedName(bookTitle):
     for result in searchResults:
         hrefText = result.a['href']
         bookTitleFromURL = hrefText.split('/')[4]
-        #print(bookTitleFromURL)
         if bookTitleFromURL.lower() in bookTitle.lower() and bookTitleFromURL.lower() is not "":
-            #print bookTitleFromURL.lower()
             return bookTitleFromURL.lower()
 
 

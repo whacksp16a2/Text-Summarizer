@@ -11,15 +11,15 @@ from sumy.utils import get_stop_words
 LANGUAGE = "english"
 SENTENCES_COUNT = 2
 
-def getSummary(parser, sentences_count):
+def summarize(parser, sentences_count):
     stemmer = Stemmer(LANGUAGE)
 
     summarizer = Summarizer(stemmer)
     summarizer.stop_words = get_stop_words(LANGUAGE)
 
-    sentences = []
+    sentences = ""
     for sentence in summarizer(parser.document, sentences_count):
-        sentences.append(sentence)
+        sentences += " " + str(sentence)
 
     return sentences
 
@@ -27,13 +27,13 @@ def getSummaryFromWebsite(url, sentences_count):
 
     parser = HtmlParser.from_url(url, Tokenizer(LANGUAGE))
 
-    return getSummary(parser, sentences_count)
+    return summarize(parser, sentences_count)
 
 def getSummaryFromFile(path, sentences_count):
 
     parser = PlaintextParser.from_file(path, Tokenizer(LANGUAGE))
 
-    return getSummary(parser, sentences_count)
+    return summarize(parser, sentences_count)
 
 if __name__ == "__main__":
     path = "BookThief.txt"
