@@ -1,6 +1,7 @@
 from app import app
 import masterSummarizer as MS
 from flask import render_template, request, url_for
+from pirateSpeak import toPirateSpeak
 
 @app.route('/')
 def index():
@@ -13,6 +14,13 @@ def form():
     output_text = MS.getSummary(book_name, 3)
     if output_text:
         print "it works"
+
+    language = request.form['language']
+    if language == 'pirate':
+        output_text = toPirateSpeak(output_text)
+    elif language == 'yoda':
+        output_text = 'implemented, this was not'
+
     return render_template('index.html', output_text=output_text)
 
 @app.route('/dev')

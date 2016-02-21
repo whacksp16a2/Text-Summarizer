@@ -13,40 +13,43 @@ class MLStripper(HTMLParser):
 
 
 def wiki_summary(title):
-	title = title.replace(" ", "_")
-	title = title.strip(" ").title()
-	site = "http://en.wikipedia.com/wiki/" + title
+    title = title.replace(" ", "_")
+    title = title.strip(" ").title()
+    if title == "The_Alchemist":
+        site = "http://en.wikipedia.com/wiki/The_Alchemist_(novel)"
+    else:
+        site = "http://en.wikipedia.com/wiki/" + title
 
-	hdr = {'User-Agent': 'Mozilla/5.0'}
-	req = urllib2.Request(site,headers=hdr)
-	page = urllib2.urlopen(req)
+    hdr = {'User-Agent': 'Mozilla/5.0'}
+    req = urllib2.Request(site,headers=hdr)
+    page = urllib2.urlopen(req)
 
-	soup = BeautifulSoup(page, 'html.parser')
-	plot_location_1 = str(soup.find(id="Plot"))
-	plot_location_2 = str(soup.find(id="Plot_summary"))
-	plot_location_3 = str(soup.find(id="Synopsis"))
-	plot_location_4 = str(soup.find(id="Summary"))
+    soup = BeautifulSoup(page, 'html.parser')
+    plot_location_1 = str(soup.find(id="Plot"))
+    plot_location_2 = str(soup.find(id="Plot_summary"))
+    plot_location_3 = str(soup.find(id="Synopsis"))
+    plot_location_4 = str(soup.find(id="Summary"))
 
-	body = str(soup.body)
-	if plot_location_1 in body:
-		index = body.index(plot_location_1)
-	elif plot_location_2 in body:
-		index = body.index(plot_location_2)
-	elif plot_location_3 in body:
-		index = body.index(plot_location_3)
-	elif plot_location_4 in body:
-		index = body.index(plot_location_4)
-	else:
-		return ""
+    body = str(soup.body)
+    if plot_location_1 in body:
+    	index = body.index(plot_location_1)
+    elif plot_location_2 in body:
+    	index = body.index(plot_location_2)
+    elif plot_location_3 in body:
+    	index = body.index(plot_location_3)
+    elif plot_location_4 in body:
+    	index = body.index(plot_location_4)
+    else:
+    	return ""
 
-	plot_loc = body[index:]
-	index_para_start = plot_loc.index("<p>")
-	index_para_end = plot_loc.index("<h2>")
+    plot_loc = body[index:]
+    index_para_start = plot_loc.index("<p>")
+    index_para_end = plot_loc.index("<h2>")
 
-	unstripped = str(plot_loc[index_para_start:index_para_end])
+    unstripped = str(plot_loc[index_para_start:index_para_end])
 
-	stripped = stripHTMLTags(unstripped)
-	return stripBrackets(stripped)
+    stripped = stripHTMLTags(unstripped)
+    return stripBrackets(stripped)
 
 def stripHTMLTags(html):
     html = re.sub(r'<{1}br{1}>', '\n', html)
@@ -62,18 +65,16 @@ def stripHTMLTags(html):
     text = text.replace(".", ". ")
     text = text.replace("  "," ")
     text = text.replace("""   /
- 	/ """, "")
+        / """, "")
     return text
 
 def stripBrackets(text):
-	for i in range(100):
-		text = text.replace("[" + str(i) + "]","")
-	return text
+    for i in range(100):
+        text = text.replace("[" + str(i) + "]","")
+    return text
 
 
 
 if __name__ == "__main__":
-	book_title = str(raw_input("What's your favorite book?"))
-	print(wiki_summary(book_title))
-
-
+    book_title = str(raw_input("What's your favorite book?"))
+    print(wiki_summary(book_title))

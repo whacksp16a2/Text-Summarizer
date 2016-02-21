@@ -63,13 +63,14 @@ PIRATE_LEXICON = {
     "mother": "dear ol' mum, bless her black soul",
     "drink": "barrel o' rum",
     "of": "o'",
-    "husband": "cabin boy"
+    "husband": "cabin boy",
+    "fortunes": "plunder"
 }
 
 def toPirateSpeak(english):
-    for (word, translation) in PIRATE_LEXICON.iteritems():
-        english = english.replace(word, translation)
-    return english
+    # for (word, translation) in PIRATE_LEXICON.iteritems():
+        # english = english.replace(word, translation)
+    return ' '.join([PIRATE_LEXICON.get(key, key) for key in english.split()])
 
 if __name__ == "__main__":
     book_title = str(raw_input("What's your favorite book?"))
