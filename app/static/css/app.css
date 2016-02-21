@@ -26,20 +26,36 @@
 .landing-text{
     /*border: 5px #AAA solid;*/
     display: inline-block;
-    padding:40px 60px;
+    padding-top:4rem;
+    padding-bottom:4rem;
     /*border-radius: 20px;*/
 }
+@media screen{
+    .big-text{
+        font-size: 3em;
+        margin-bottom: -2rem;
+        color:#424242;
+    }
 
-.big-text{
-    font-size: 8em;
-    margin-bottom: -40px;
-    color:#424242;
+    .small-text{
+        font-size:1rem;
+        color: #AAA;
+    }
 }
 
-.small-text{
-    font-size:2.5rem;
-    color: #AAA;
+@media screen and (min-width: 40em){
+    .big-text{
+        font-size: 8em;
+        margin-bottom: -40px;
+        color:#424242;
+    }
+
+    .small-text{
+        font-size:2.5rem;
+        color: #AAA;
+    }
 }
+
 
 .down-arrow{
     position: absolute;
@@ -89,7 +105,7 @@
     border-radius: 20px;
     margin-top: 25px;
     padding: 25px;
-    
+
     -webkit-box-shadow: 0px 10px 65px -12px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 10px 65px -12px rgba(0,0,0,0.75);
     box-shadow: 0px 10px 65px -12px rgba(0,0,0,0.75);
