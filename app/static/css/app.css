@@ -83,6 +83,17 @@
     border-radius: 20px;
 }
 
+#display-box{
+    background: green;
+    width: 50%;
+    height: 10vh;
+    margin-left: 25%;
+    text-align: center;
+    border-radius: 25px;
+}
+
+
+
 /********************
         FOOTER
 ********************/
